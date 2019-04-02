@@ -12,6 +12,22 @@ __pycache__/
 
 # C extensions
 *.so
+# All React Files that Are not to be included
+
+.idea/
+.vscode/
+node_modules/
+build
+.DS_Store
+*.tgz
+my-app*
+template/src/__tests__/__snapshots__/
+lerna-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.changelog
+.npm/
 
 # Distribution / packaging
 .Python
@@ -110,3 +126,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 >>>>>>> 78abbe01d0b8862451be8d355fee2e82684bbbcb
+
