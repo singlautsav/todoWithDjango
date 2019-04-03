@@ -54,6 +54,16 @@
                       placeholder="time placeholder"
                     />
                 </FormGroup>
+                <FormGroup>
+                  <Label for="dateEvent">Date</Label>
+                  <Input
+                    type="date"
+                    name="dateEvent"
+                    value = {this.state.activeItem.dateEvent}
+                    onChange = {this.handleChange}
+                    placeholder="date placeholder"
+                  />
+                </FormGroup>
                 
               </Form>
             </ModalBody>

@@ -26,10 +26,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     // viewCompleted: false,
+     viewCompleted: false,
      activeItem:{
        task:"",
        timeTaskl:"",
+       dateEvent: "",
+
      },
       todoList: []
     };
@@ -56,8 +58,27 @@ class App extends Component {
       return;
     }
     axios
+      
       .post("http://localhost:8000/api/todos/", item)
       .then(res => this.refreshList());
+  };
+  handleCompleted=item=>{
+    if (item.completed){
+      item.completed =false;
+      this.setState({item})
+      axios
+        .patch(`http://localhost:8000/api/todos/${item.id}/`, item)
+        .then(res => this.refreshList());
+      return;
+    }
+    else{
+    item.completed =true;
+    this.setState({item})
+    axios
+        .patch(`http://localhost:8000/api/todos/${item.id}/`, item)
+        .then(res => this.refreshList());
+      return;
+    }
   };
   handleDelete = item => {
     axios
@@ -72,6 +93,7 @@ class App extends Component {
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
 
+  
   displayCompleted = status => {
     if (status) {
       return this.setState({ viewCompleted: true });
@@ -81,18 +103,18 @@ class App extends Component {
   renderTabList = () => {
     return (
       <div className="my-5 tab-list">
-        {/* <span
-          // onClick={() => this.displayCompleted(true)}
+        <span
+          onClick={() => this.displayCompleted(true)}
           className={this.state.viewCompleted ? "active" : ""}
         >
           complete
         </span>
         <span
-          // onClick={() => this.displayCompleted(false)}
+          onClick={() => this.displayCompleted(false)}
           className={this.state.viewCompleted ? "" : "active"}
         >
           Incomplete
-        </span> */}
+        </span>
       </div>
     );
   };
@@ -112,16 +134,20 @@ class App extends Component {
           }`}
           title={item.task}
         >
-          {item.task} {item.timeTaskl}
+          
+          {item.task}---{item.dateEvent}---{item.timeTaskl} 
         </span>
         <span>
           <button 
             onClick={()=> this.editItem(item)}
             className="btn btn-secondary mr-2"> Edit Task </button>
-
+            {/* console.log(item) */}
           <button
             onClick={()=> this.handleDelete(item)} 
             className="btn btn-danger">Delete Task</button>
+          <button
+            onClick={()=> this.handleCompleted(item)}
+            className="btn btn-secondary mr-2">Complete</button>
         </span>
       </li>
     ));
