@@ -6,4 +6,4 @@ Use command # npm start # to run the react app
 
 To look into the Database one can go to 127.0.0.1:8000/api/todos
 
-Link to the demo Video is https://drive.google.com/file/d/1tGQo7_4sHd4W40QM8SRMp0ajuvWbGM37/view?usp=sharing
+Link to the demo Video is https://drive.google.com/file/d/1tGQo7_4sHd4W40QM8SRMp0ajuvWbGM37/view?usp=sharing or view the whatsappvideo in the repository
