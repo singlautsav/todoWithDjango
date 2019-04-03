@@ -4,8 +4,5 @@ Therefore, Instal all the requirements using the requirements.txt file and packa
 Use command # ./manage.py runserver # to run the django app
 Use command # npm start # to run the react app
 
-admin to the django aree
-Username: user
-Password: password.
-
 To look into the Database one can go to 127.0.0.1:8000/api/todos
+
